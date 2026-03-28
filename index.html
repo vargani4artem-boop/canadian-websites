@@ -11,9 +11,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="output.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{brand:{50:'#fff7ed',100:'#ffedd5',400:'#fb923c',500:'#f97316',600:'#ea580c',900:'#7c2d12'}}}}}
+</script>
+<style>
+html,body{overflow-x:hidden;max-width:100vw;}
+.fade-in-up{animation:fadeInUp 0.8s ease-out forwards;opacity:0;transform:translateY(20px);}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
+.delay-100{animation-delay:100ms;}.delay-200{animation-delay:200ms;}.delay-300{animation-delay:300ms;}
+</style>
 </head>
-<body class="font-sans text-slate-300 bg-slate-950 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden w-full relative">
+<body class="font-sans text-slate-300 bg-slate-950 antialiased selection:bg-brand-500 selection:text-white" style="overflow-x:hidden">
 <header>
 <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10 transition-all">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,8 +47,8 @@
 </header>
 
 <main>
-<section id="hero" class="relative pt-32 pb-12 lg:pt-48 lg:pb-16 overflow-hidden">
-<div class="absolute inset-0 z-0 content-[''] pointer-events-none">
+<section id="hero" class="relative pt-32 pb-12 lg:pt-48 lg:pb-16" style="overflow:hidden">
+<div class="absolute inset-0 z-0 pointer-events-none">
 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-500/20 blur-3xl opacity-50"></div>
 <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-slate-800/50 blur-3xl opacity-50"></div>
 </div>
@@ -63,7 +72,7 @@ A Reliable Partner for Your Business
 <div class="lg:col-span-6 fade-in-up delay-200">
 <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-white/10 max-w-xl mx-auto transform transition-transform hover:scale-[1.02] duration-500 group">
 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<img src="hero.webp" alt="Premium Modern Web Design Mockup showing a dark theme interface" width="800" height="600" decoding="async" fetchpriority="high" class="w-full h-auto object-cover aspect-[4/3] filter contrast-110">
+<img src="hero.webp" alt="Premium Modern Web Design Mockup showing a dark theme interface" width="800" height="600" decoding="async" fetchpriority="high" class="w-full h-auto object-cover aspect-[4/3]">
 </div>
 </div>
 </div>
@@ -86,7 +95,7 @@ A Reliable Partner for Your Business
 <h2 class="text-3xl font-bold tracking-tight text-white mb-6">We Build Websites We Are Proud Of</h2>
 <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
 <p>Since 2010, we have been successfully helping our clients grow their businesses and prosper. Observing the industry, we noticed one thing: the approach where a developer builds a site from scratch for enormous amounts of money, and then abandons it without competent maintenance, brings more inconvenience and disappointment than benefit to the clients.</p>
-<p>That is why the core of **Canadian Websites** is built on the idea of <strong class="text-slate-200">responsibility and care for the client, from the very beginning of creating a turnkey website throughout its entire life.</strong></p>
+<p>That is why the core of Canadian Websites is built on the idea of <strong class="text-slate-200">responsibility and care for the client, from the very beginning of creating a turnkey website throughout its entire life.</strong></p>
 <p>We don't charge huge amounts for development. Our business model is an honest subscription for technical maintenance. We provide a modern result and guarantee that your resource will always run like clockwork.</p>
 </div>
 <div class="mt-8 flex items-center gap-6">
@@ -137,7 +146,7 @@ A Reliable Partner for Your Business
 </div>
 </section>
 
-<section id="pricing" class="py-24 bg-slate-900 border-t border-white/5 relative overflow-hidden">
+<section id="pricing" class="py-24 bg-slate-900 border-t border-white/5 relative" style="overflow:hidden">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="text-center max-w-3xl mx-auto mb-16">
 <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Pay Only for Results</h2>
@@ -177,7 +186,7 @@ A Reliable Partner for Your Business
 <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold" aria-hidden="true">O</div>
 <div class="ml-3">
 <p class="text-white font-semibold text-sm">Business Owner</p>
-<p class="text-slate-400 text-xs text-brand-400">Retail</p>
+<p class="text-brand-400 text-xs">Retail</p>
 </div>
 </div>
 </div>
@@ -188,7 +197,7 @@ A Reliable Partner for Your Business
 <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold" aria-hidden="true">M</div>
 <div class="ml-3">
 <p class="text-white font-semibold text-sm">Agency Marketer</p>
-<p class="text-slate-400 text-xs text-brand-400">B2B Sector</p>
+<p class="text-brand-400 text-xs">B2B Sector</p>
 </div>
 </div>
 </div>
@@ -197,7 +206,7 @@ A Reliable Partner for Your Business
 </section>
 
 <section id="contact" class="py-24 bg-slate-900 border-t border-white/5 relative">
-<div class="absolute inset-0 z-0 content-[''] pointer-events-none">
+<div class="absolute inset-0 z-0 pointer-events-none">
 <div class="absolute left-1/2 bottom-0 -ml-64 w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[100px]"></div>
 </div>
 <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -208,6 +217,7 @@ A Reliable Partner for Your Business
 <div class="bg-white/5 backdrop-blur-sm rounded-3xl shadow-xl border border-white/10 p-8 sm:p-12">
 <form action="https://formsubmit.co/vargani4artem@gmail.com" method="POST" class="space-y-6">
 <input type="hidden" name="_subject" value="New Lead from Canadian Websites!">
+<input type="hidden" name="_captcha" value="false">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label for="name" class="block text-sm font-semibold text-slate-300 mb-2">Name *</label>
@@ -249,7 +259,6 @@ A Reliable Partner for Your Business
 </footer>
 
 <script>
-// Lightweight Intersection Observer for scroll animations (FID/INP optimization)
 document.addEventListener("DOMContentLoaded", function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -259,9 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }, { threshold: 0.1 });
-  
-  const animatedElements = document.querySelectorAll('.fade-in-up');
-  animatedElements.forEach(el => {
+  document.querySelectorAll('.fade-in-up').forEach(el => {
     el.style.animationPlayState = 'paused';
     observer.observe(el);
   });
