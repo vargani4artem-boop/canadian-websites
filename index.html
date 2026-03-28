@@ -11,25 +11,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{brand:{50:'#fff7ed',100:'#ffedd5',500:'#f97316',600:'#ea580c',900:'#7c2d12'}}}}}
-</script>
-<style>
-.fade-in-up{animation:fadeInUp 0.8s ease-out forwards;opacity:0;transform:translateY(20px);}
-@keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
-.delay-100{animation-delay:100ms;}.delay-200{animation-delay:200ms;}.delay-300{animation-delay:300ms;}
-</style>
+<link rel="stylesheet" href="output.css">
 </head>
-<body class="font-sans text-slate-300 bg-slate-950 antialiased selection:bg-brand-500 selection:text-white">
-<nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10 transition-all">
+<body class="font-sans text-slate-300 bg-slate-950 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden w-full relative">
+<header>
+<nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10 transition-all">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between h-20 items-center">
 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-red-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30">CW</div>
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-red-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30" aria-hidden="true">CW</div>
 <span class="font-bold text-xl tracking-tight text-white">Canadian Websites</span>
 </div>
-<div class="hidden lg:flex space-x-8">
+<div class="hidden lg:flex space-x-8" role="navigation" aria-label="Main Navigation">
 <a href="#hero" class="text-slate-300 hover:text-brand-500 font-medium transition-colors p-2">Home</a>
 <a href="#team" class="text-slate-300 hover:text-brand-500 font-medium transition-colors p-2">Founders</a>
 <a href="#principles" class="text-slate-300 hover:text-brand-500 font-medium transition-colors p-2">Principles</a>
@@ -42,9 +35,11 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:
 </div>
 </div>
 </nav>
+</header>
 
+<main>
 <section id="hero" class="relative pt-32 pb-12 lg:pt-48 lg:pb-16 overflow-hidden">
-<div class="absolute inset-0 z-0 content-['']">
+<div class="absolute inset-0 z-0 content-[''] pointer-events-none">
 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-500/20 blur-3xl opacity-50"></div>
 <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-slate-800/50 blur-3xl opacity-50"></div>
 </div>
@@ -52,7 +47,7 @@ tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:
 <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
 <div class="lg:col-span-6 text-center lg:text-left mb-16 lg:mb-0 space-y-8">
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold fade-in-up">
-<span class="flex h-2 w-2 rounded-full bg-brand-500"></span>
+<span class="flex h-2 w-2 rounded-full bg-brand-500" aria-hidden="true"></span>
 A Reliable Partner for Your Business
 </div>
 <h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.2] fade-in-up delay-100">Take the first step towards <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">your representation on the internet.</span></h1>
@@ -68,7 +63,7 @@ A Reliable Partner for Your Business
 <div class="lg:col-span-6 fade-in-up delay-200">
 <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/50 ring-1 ring-white/10 max-w-xl mx-auto transform transition-transform hover:scale-[1.02] duration-500 group">
 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<img src="hero.webp" alt="Premium Modern Web Design Mockup showing a dark theme interface" width="800" height="600" decoding="async" class="w-full h-auto object-cover aspect-[4/3] filter contrast-110">
+<img src="hero.webp" alt="Premium Modern Web Design Mockup showing a dark theme interface" width="800" height="600" decoding="async" fetchpriority="high" class="w-full h-auto object-cover aspect-[4/3] filter contrast-110">
 </div>
 </div>
 </div>
@@ -97,12 +92,12 @@ A Reliable Partner for Your Business
 <div class="mt-8 flex items-center gap-6">
 <div class="flex flex-col">
 <span class="text-4xl font-extrabold text-brand-500 block">2010</span>
-<span class="text-sm font-medium text-slate-500 uppercase tracking-wider mt-1 block">Year Founded</span>
+<span class="text-sm font-medium text-slate-400 uppercase tracking-wider mt-1 block">Year Founded</span>
 </div>
 <div class="w-px h-12 bg-white/10"></div>
 <div class="flex flex-col">
 <span class="text-4xl font-extrabold text-white block">100%</span>
-<span class="text-sm font-medium text-slate-500 uppercase tracking-wider mt-1 block">Turnkey Ready</span>
+<span class="text-sm font-medium text-slate-400 uppercase tracking-wider mt-1 block">Turnkey Ready</span>
 </div>
 </div>
 </div>
@@ -118,21 +113,21 @@ A Reliable Partner for Your Business
 </div>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors">
-<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6">
+<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6" aria-hidden="true">
 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
 </div>
 <h3 class="text-xl font-bold text-white mb-3">Principle of Trust</h3>
 <p class="text-slate-400 leading-relaxed">We only promise what we can guarantee to deliver. And we always, without exception, deliver exactly what we promised.</p>
 </div>
 <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors">
-<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6">
+<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6" aria-hidden="true">
 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
 </div>
 <h3 class="text-xl font-bold text-white mb-3">Principle of Teamwork</h3>
 <p class="text-slate-400 leading-relaxed">We are not just contractors; we are partners. We work together with you as one strong team to solve your business challenges.</p>
 </div>
 <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors">
-<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6">
+<div class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center mb-6" aria-hidden="true">
 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
 </div>
 <h3 class="text-xl font-bold text-white mb-3">Exceeding Expectations</h3>
@@ -151,19 +146,19 @@ A Reliable Partner for Your Business
 <div class="max-w-lg mx-auto">
 <div class="relative rounded-3xl bg-slate-950 text-white shadow-2xl shadow-black/50 p-8 sm:p-10 ring-1 ring-white/10 group">
 <div class="absolute inset-0 rounded-3xl ring-2 ring-brand-500/30 group-hover:ring-brand-500 transition-colors pointer-events-none"></div>
-<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand-500/20 blur-3xl opacity-50"></div>
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-brand-500/20 blur-3xl opacity-50 pointer-events-none"></div>
 <h3 class="text-2xl font-bold text-white">All-Inclusive</h3>
 <p class="mt-4 text-slate-400">A full cycle of services for your peace of mind.</p>
 <div class="mt-8 flex items-baseline">
 <span class="text-6xl font-extrabold text-white block">$16</span>
-<span class="text-xl font-medium text-slate-500 ml-2 block">CAD / mo</span>
+<span class="text-xl font-medium text-slate-400 ml-2 block">CAD / mo</span>
 </div>
 <p class="mt-4 inline-flex px-3 py-1 rounded text-sm text-brand-900 bg-brand-500 font-bold uppercase tracking-wider">Free Development</p>
 <ul class="mt-8 space-y-5 text-slate-300">
-<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom Modern Design</li>
-<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Reliable Premium Hosting</li>
-<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Ongoing Technical Support</li>
-<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Basic SEO Optimization</li>
+<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom Modern Design</li>
+<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Reliable Premium Hosting</li>
+<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Ongoing Technical Support</li>
+<li class="flex items-start"><svg class="w-6 h-6 mr-3 text-brand-500 flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Basic SEO Optimization</li>
 </ul>
 <a href="#contact" class="mt-10 block w-full bg-brand-600 hover:bg-brand-500 text-white text-center font-bold py-4 px-8 min-h-[48px] rounded-xl transition-all shadow-lg hover:shadow-brand-500/25">Start Now</a>
 </div>
@@ -176,24 +171,24 @@ A Reliable Partner for Your Business
 <h2 class="text-3xl font-bold tracking-tight text-white mb-12 text-center">What Our Clients Say</h2>
 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
-<svg class="w-10 h-10 text-brand-500/20 absolute top-6 right-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+<svg class="w-10 h-10 text-brand-500/20 absolute top-6 right-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
 <p class="text-slate-300 italic text-lg relative z-10 leading-relaxed">"An excellent website for promoting a company or selling products. A huge thank you to all the company's employees for a modern, convenient, and incredibly functional website!"</p>
 <div class="mt-6 flex items-center">
-<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold">O</div>
+<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold" aria-hidden="true">O</div>
 <div class="ml-3">
 <p class="text-white font-semibold text-sm">Business Owner</p>
-<p class="text-slate-500 text-xs text-brand-400">Retail</p>
+<p class="text-slate-400 text-xs text-brand-400">Retail</p>
 </div>
 </div>
 </div>
 <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative">
-<svg class="w-10 h-10 text-brand-500/20 absolute top-6 right-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+<svg class="w-10 h-10 text-brand-500/20 absolute top-6 right-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
 <p class="text-slate-300 italic text-lg relative z-10 leading-relaxed">"We feel genuine care and see excellent results. Statistically, 95% of clients report a significant increase in inquiries right after launching the project!"</p>
 <div class="mt-6 flex items-center">
-<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold">M</div>
+<div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 font-bold" aria-hidden="true">M</div>
 <div class="ml-3">
 <p class="text-white font-semibold text-sm">Agency Marketer</p>
-<p class="text-slate-500 text-xs text-brand-400">B2B Sector</p>
+<p class="text-slate-400 text-xs text-brand-400">B2B Sector</p>
 </div>
 </div>
 </div>
@@ -202,7 +197,7 @@ A Reliable Partner for Your Business
 </section>
 
 <section id="contact" class="py-24 bg-slate-900 border-t border-white/5 relative">
-<div class="absolute inset-0 z-0 content-['']">
+<div class="absolute inset-0 z-0 content-[''] pointer-events-none">
 <div class="absolute left-1/2 bottom-0 -ml-64 w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[100px]"></div>
 </div>
 <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -211,7 +206,8 @@ A Reliable Partner for Your Business
 <p class="mt-2 text-slate-400">Leave a request for the creation of a modern turnkey website</p>
 </div>
 <div class="bg-white/5 backdrop-blur-sm rounded-3xl shadow-xl border border-white/10 p-8 sm:p-12">
-<form action="#" method="POST" class="space-y-6">
+<form action="https://formsubmit.co/vargani4artem@gmail.com" method="POST" class="space-y-6">
+<input type="hidden" name="_subject" value="New Lead from Canadian Websites!">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label for="name" class="block text-sm font-semibold text-slate-300 mb-2">Name *</label>
@@ -231,17 +227,18 @@ A Reliable Partner for Your Business
 <textarea id="message" name="message" rows="4" class="block w-full bg-slate-950/50 rounded-xl border border-white/10 py-3 px-4 text-white shadow-sm placeholder:text-slate-600 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500 transition-colors resize-none"></textarea>
 </div>
 <div class="pt-4">
-<button type="button" class="w-full sm:w-auto inline-flex justify-center items-center px-10 py-4 min-h-[48px] font-bold text-slate-950 bg-brand-500 hover:bg-brand-400 rounded-xl transition-all shadow-md shadow-brand-500/20" onclick="alert('Thank you! Your request has been sent.')">Send Request</button>
+<button type="submit" class="w-full sm:w-auto inline-flex justify-center items-center px-10 py-4 min-h-[48px] font-bold text-slate-950 bg-brand-500 hover:bg-brand-400 rounded-xl transition-all shadow-md shadow-brand-500/20">Send Request</button>
 </div>
 </form>
 </div>
 </div>
 </section>
+</main>
 
-<footer class="bg-slate-950 py-12 border-t border-white/5">
+<footer class="bg-slate-950 py-12 border-t border-white/5" role="contentinfo">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-center">
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-red-600 flex items-center justify-center text-white font-bold text-xl">CW</div>
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-red-600 flex items-center justify-center text-white font-bold text-xl" aria-hidden="true">CW</div>
 <span class="font-bold text-xl text-white">Canadian Websites</span>
 </div>
 <div class="md:text-right text-slate-500 text-sm">
