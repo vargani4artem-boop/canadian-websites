@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI System Guardrails | Canadian Web-as-a-Service</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --code-bg: #111827;
+            --code-text: #E5E7EB;
+            --warning-bg: #FFFBEB;
+            --warning-border: #F59E0B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 3rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 { margin-top: 0; font-size: 2rem; color: #111827; }
+        h2 { font-size: 1.5rem; margin-top: 2.5rem; border-bottom: 2px solid #E5E7EB; padding-bottom: 0.5rem; }
+        
+        .description { font-size: 1.1rem; color: #4B5563; margin-bottom: 2rem; }
+
+        /* Code box styling */
+        .prompt-card {
+            background-color: var(--code-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            margin-top: 1.5rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .prompt-card pre {
+            margin: 0;
+            white-space: pre-wrap;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--code-text);
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+        .warning-box {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .warning-box h4 { margin: 0 0 0.5rem 0; color: #B45309; font-size: 1.1rem; }
+        
+        .bad-examples ul { padding-left: 1.5rem; color: #DC2626; font-weight: 500; }
+        .bad-examples ul li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Системные инструкции для ИИ (AI Guardrails)</h1>
+        <p class="description">Эти системные промпты необходимо вставлять в ИИ до того, как вы начнете генерировать сайты для канадского рынка на `*.canadian.top`. Они программно блокируют генерацию текста, который может спровоцировать судебные иски об авторском праве или стать причиной chargeback-запросов со стороны клиента.</p>
+
+        <div class="warning-box">
+            <h4>⚠️ ЧЕГО НЕЛЬЗЯ ПИСАТЬ В ЗАДАЧАХ (Грубые ошибки)</h4>
+            <div class="bad-examples">
+                <ul>
+                    <li>«Сделай этот сайт визуально как Apple.com или Nike» (Риск: Trademark Infringement)</li>
+                    <li>«Скопируй текст отсюда: [ссылка на конкурента] и перепиши его чуть-чуть» (Риск: Copyright Infringement)</li>
+                    <li>«Напиши, что мы гарантируем 100% возврат денег или 100% успех» (Риск: Misrepresentation/Refund Abuse)</li>
+                </ul>
+            </div>
+            <p><strong>Вместо этого мы используем строгую систему ограничений, представленную ниже.</strong></p>
+        </div>
+
+        <h2>1. Глобальный базовый промпт для генерации текстов (Base System Prompt)</h2>
+        <p>Для генерации текстового наполнения любого лендинга. Этот промпт защищает вас от плагиата и незаконных заявлений о гарантиях.</p>
+        
+        <div class="prompt-card">
+            <button class="copy-btn" onclick="copyText('prompt1', this)">Копировать</button>
+            <pre id="prompt1">
+Установи для себя следующие строгие юридические ограничения (System Guardrails) при генерации любого контента:
+
+1. TRADEMARK & BRANDING STRICT POLICY:
+Никогда не используй, не упоминай и не намекай на названия существующих реальных брендов, торговых марок или конкурирующих компаний.
+Не используй запатентованные слоганы (например, "Just do it" или "Think different"). Генерируй исключительно общие (generic) индустриальные термины.
+
+2. NO ABSOLUTE GUARANTEES (DISCLAIMER RULE):
+Никогда не генерируй финансовые, юридические или медицинские обещания. Не используй фразы "100% гарантия результата", "гарантированный успех" и аналогичные абсолютные заявления.
+Формулируй фразы профессионально, но мягко: "Мы стремимся к лучшему результату", "Один из лучших подходов".
+
+3. ORIGINALITY REQUIREMENT:
+Твоя задача — создавать 100% уникальный контент. Ты не имеешь права копировать тексты, абзацы или структуру из любых конкретных внешних источников. 
+
+4. ДОБАВЛЕНИЕ ДИСКЛЕЙМЕРА (MANDATORY):
+В футере (или мелким шрифтом в конце генерируемого тобой документа) всегда автоматически добавляй следующую фразу: 
+"Данный контент был создан с помощью технологий искусственного интеллекта. Заказчик обязан самостоятельно провести финальную вычитку и проверку текста на достоверность перед публичным размещением на домене .canadian.top."</pre>
+        </div>
+
+        <h2>2. Промпт для генерации изображений / структуры дизайна (Midjourney / DALL-E)</h2>
+        <p>Если вы используете визуальные генераторы для дизайна.</p>
+        
+        <div class="prompt-card">
+            <button class="copy-btn" onclick="copyText('prompt2', this)">Копировать</button>
+            <pre id="prompt2">
+Твоя задача — создать структуру / концепт дизайна сайта, следуя строгим правилам:
+
+1. Исключи из генерации любые реальные логотипы компаний, брендовые элементы интерфейсов (например, интерфейс macOS или iOS-специфичные элементы с их торговыми марками).
+2. Используй исключительно абстрактные, generic интерфейсы и "placeholder" логотипы.
+3. Не создавай изображения людей, которые являются прямыми узнаваемыми копиями реальных знаменитостей или публичных личностей (Right of Publicity).
+4. Избегай точного копирования композиции, цветовой палитры и типографики, которая прямо ассоциируется с одним известным мегабрендом.</pre>
+        </div>
+
+        <h2>Правило для модерации (Авто-Проверка)</h2>
+        <p>Если клиент всё же приносит вам свой текст, прогоняйте его через этот промпт:</p>
+        <div class="prompt-card">
+            <button class="copy-btn" onclick="copyText('prompt3', this)">Копировать</button>
+            <pre id="prompt3">
+Проанализируй предоставленный Заказчиком текст на предмет потенциальных юридических рисков для хостинг-провайдера в юрисдикции Канады (Alberta). 
+Обращай внимание на:
+- Упоминание чужих торговых марок без очевидного права (Trademark infringement).
+- Явно мошеннические обещания (Scam / Misrepresentation).
+- Спам-паттерны или фразы, нарушающие стандартный Acceptable Use Policy (AUP).
+
+Если находишь триггеры, выведи список предупреждений для блокировки публикации.</pre>
+        </div>
+
+    </div>
+
+    <script>
+        function copyText(elementId, button) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "Скопировано!";
+                button.style.background = "#059669";
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.background = "rgba(255, 255, 255, 0.1)";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
